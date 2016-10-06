@@ -1,0 +1,133 @@
+{
+  "address": "0x82f29ec6fe5e7edd336c9261522970d486b64119",
+  "abi": [{
+      "constant": false,
+      "inputs": [{
+          "name": "part",
+          "type": "address"
+      }],
+      "name": "detachPart",
+      "outputs": [],
+      "type": "function"
+    },{
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [{
+          "name": "",
+          "type": "bytes"
+      }],
+      "type": "function"
+    },{
+      "constant": true,
+      "inputs": [],
+      "name": "attachedPartsLength",
+      "outputs": [{
+          "name": "",
+          "type": "uint256"
+      }],
+      "type": "function"
+    },{
+      "constant": true,
+      "inputs": [],
+      "name": "isAllowedToFly",
+      "outputs": [{
+          "name": "",
+          "type": "bool"
+      }],
+      "type": "function"
+    },{
+      "constant": false,
+      "inputs": [{
+          "name": "part",
+          "type": "address"
+      }],
+      "name": "attachPart",
+      "outputs": [],
+      "type": "function"
+    },{
+      "constant": true,
+      "inputs": [{
+          "name": "",
+          "type": "uint256"
+      }],
+      "name": "attachedParts",
+      "outputs": [{
+          "name": "",
+          "type": "address"
+      }],
+      "type": "function"
+    },{
+      "constant": true,
+      "inputs": [],
+      "name": "remainingFlightHours",
+      "outputs": [{
+          "name": "minRemainder",
+          "type": "int256"
+      }],
+      "type": "function"
+    },{
+      "constant": false,
+      "inputs": [{
+          "name": "count",
+          "type": "uint64"
+      }],
+      "name": "bookFlightHours",
+      "outputs": [],
+      "type": "function"
+    },{
+      "constant": false,
+      "inputs": [{
+          "name": "part",
+          "type": "address"
+      }],
+      "name": "logRepairJob",
+      "outputs": [],
+      "type": "function"
+    },{
+      "inputs": [{
+          "name": "_name",
+          "type": "bytes"
+      }],
+      "type": "constructor"
+    },{
+      "anonymous": false,
+      "inputs": [{
+          "indexed": false,
+          "name": "aircraft",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "part",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "counter",
+          "type": "int256"
+      }],
+      "name": "LLPIncident",
+      "type": "event"
+    },{
+      "anonymous": false,
+      "inputs": [{
+          "indexed": false,
+          "name": "aircraft",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "part",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "jobTypeCode",
+          "type": "uint256"
+      }],
+      "name": "MROIncident",
+      "type": "event"
+    }
+  ]
+}
