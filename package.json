@@ -10,7 +10,7 @@
     "lint": "jshint test/ && jshint lib/",
     "run": "node exporter.js",
     "test": "mocha",
-    "posttest": "npm run lint",
+    "post_test": "npm run lint",
     "preversion": "npm run lint",
     "postversion": "git push && git push --tags"
   },
@@ -31,11 +31,12 @@
     "mockserver": "^1.5.1"
   },
   "dependencies": {
-    "mocha": "^3.0.2",
+    "chai": "^3.5.0",
+    "glob-promise": "^1.0.6",
+    "mocha": "^3.1.0",
     "pem": "^1.8.3",
     "restify": "^4.1.1",
     "restify-cors-middleware": "0.0.7",
-    "restify-errors": "^4.2.3",
-    "ethereumjs-abi": "^0.6.4"
+    "restify-errors": "^4.2.3"
   }
 }

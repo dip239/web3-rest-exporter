@@ -2,7 +2,7 @@
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-var glob = require("glob");
+var glob = require("glob-promise");
 
 var SolidityCoder = require('web3/lib/solidity/coder.js');
 
@@ -62,22 +62,16 @@ function parseMethodCall(rawTxHex){
 //console.log(web3.sha3('bookFlightHours(uint64)'));
 
 
-
-glob("./test/abi/*.abi.json", function (er, files) {
-  if (!er) {
+glob("./test/abi/*.abi.json")
+.then( files => {
     var knownAbi = {};
-    files.map( f => {
+    files.map(f => {
       var abiInfo = require(f);
-    knownAbi[abiInfo.address] = abiInfo.abi;
-  });
-
-//    console.log(parseMethodCall(rawTxHex));
+      knownAbi[abiInfo.address] = abiInfo.abi;
+    });
+    return knownAbi;
+  }).then(knownAbi => {
     console.log(knownAbi);
-  } else {
-    throw "abi directory access error"
-  }
-  // files is an array of filenames.
-  // If the `nonull` option is set, and nothing
-  // was found, then files is ["**/*.js"]
-  // er is an error object or null.
-})
+});
+//    console.log(parseMethodCall(rawTxHex));
+
