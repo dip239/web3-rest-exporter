@@ -10,20 +10,10 @@ var lastImportedNr = web3.eth.blockNumber - 50;
 
 function jsonifyArrayWithoutBrackets(a) {
   var output = [];
-  for (var i=0; i<a.length; i++)
+  for (var i=0; i<a.length; i++) {
     output.push(JSON.stringify(a[i]));
+  }
   return output.join(',');
-}
-
-function mapMethodId(abi){
-  var methodMap = {};
-  abi.forEach(m => {
-    var argtypes = m.inputs.map(m=>{return m.type});
-    var signatur = m.name + '('+argtypes.join(',')+')';
-    var methodId = web3.sha3(signatur).substring(2,10);
-    methodMap[methodId] = { name: signatur, argtypes : argtypes };
-  });
-  return methodMap;
 }
 
 function readFullBlockInfo(blockNr){
@@ -42,16 +32,14 @@ function readFullBlockInfo(blockNr){
 
 var rawTxHex='0xcaeaec1e0000000000000000000000000000000000000000000000000000000000000004';
 
-function parseMethodCall(rawTxHex){
-  if (rawTxHex.startsWith('0x')) rawTxHex = rawTxHex.substring(2);
-  var methodId = rawTxHex.substring(0,8);
-  var methodInfo = parsedAbi[methodId];
-  return SolidityCoder.decodeParams (
-      methodInfo.argtypes,
-      rawTxHex.substring(8)
-  )
-          //.map(bint=>{return bint.valueOf()});
-}
+var aerocraftAddr = '';
+var txHash = '0x6d3b2ce4d5280e20faae49d674b4fd3ea26310e6e37023bc4007f9a7546b4ed7';
+
+var tx = web3.eth.getTransaction(txHash);
+var txReceipt = web3.eth.getTransactionReceipt(txHash);
+console.log(JSON.stringify({tx:tx,receipt:txReceipt}));
+
+
 //for(var blockNr=lastImportedNr; blockNr<web3.eth.blockNumber ; ++blockNr) {
 //}
 
@@ -60,18 +48,3 @@ function parseMethodCall(rawTxHex){
 //console.log(JSON.stringify(blk1723250_info));
 
 //console.log(web3.sha3('bookFlightHours(uint64)'));
-
-
-glob("./test/abi/*.abi.json")
-.then( files => {
-    var knownAbi = {};
-    files.map(f => {
-      var abiInfo = require(f);
-      knownAbi[abiInfo.address] = abiInfo.abi;
-    });
-    return knownAbi;
-  }).then(knownAbi => {
-    console.log(knownAbi);
-});
-//    console.log(parseMethodCall(rawTxHex));
-

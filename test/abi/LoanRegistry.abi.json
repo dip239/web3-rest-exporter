@@ -1,0 +1,124 @@
+{
+  "address" : "0xdeaa03107efc144fa8efdb82a28442ac53f1b0d2",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "allLoans",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "allLoansLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMyLoans",
+      "outputs": [
+        {
+          "name": "myLoans",
+          "type": "address[]"
+        }
+      ],
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "shareHolder",
+          "type": "address"
+        }
+      ],
+      "name": "getLoans",
+      "outputs": [
+        {
+          "name": "myLoans",
+          "type": "address[]"
+        }
+      ],
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "notional",
+          "type": "uint256"
+        },
+        {
+          "name": "description",
+          "type": "bytes"
+        },
+        {
+          "name": "externalInfo",
+          "type": "bytes"
+        }
+      ],
+      "name": "createLoan",
+      "outputs": [
+        {
+          "name": "loan",
+          "type": "address"
+        }
+      ],
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "createLoanExample",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "VERSION",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "loan",
+          "type": "address"
+        }
+      ],
+      "name": "NewLoan",
+      "type": "event"
+    }
+  ]
+}

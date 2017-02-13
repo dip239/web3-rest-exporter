@@ -32,8 +32,11 @@
   },
   "dependencies": {
     "chai": "^3.5.0",
+    "glob-fs": "^0.1.6",
     "glob-promise": "^1.0.6",
+    "json-bigint": "^0.2.1",
     "mocha": "^3.1.0",
+    "mssql": "^3.3.0",
     "pem": "^1.8.3",
     "restify": "^4.1.1",
     "restify-cors-middleware": "0.0.7",
